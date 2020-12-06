@@ -5,6 +5,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
@@ -79,4 +80,23 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //TDD
+
+    // When selecting items from menu,
+    // The total amount of the selected items should be returned.
+    //
+    // The only purpose of this feature should be to display the order total.
+    // There is no necessity to store the chosen items or the order value
+    //
+    // The name of the item returned when the user selects the item is always in the menu,
+    // hence a fail case scenario/Exception scenario would be unnecessary
+
+    @Test
+    public void selecting_items_from_menu_should_return_total_amount(){
+
+        List<Item> itemList = new ArrayList<Item>();
+        itemList.add(0,restaurant.getMenu().get(0));
+        Amount amount = restaurant.calculateTotalAmount(itemList);
+        assertNotNull(amount);
+    }
 }
