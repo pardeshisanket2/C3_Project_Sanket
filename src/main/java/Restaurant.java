@@ -71,6 +71,14 @@ public class Restaurant {
     }
 
     public Amount calculateTotalAmount(List<Item> itemList) {
-        return null;
+        Amount amount = new Amount();
+        int sum = 0;
+        for (Item item : menu){
+            if (itemList.contains(item)){
+                sum += item.getPrice();
+            }
+        }
+        amount.totalAmount = sum;
+        return amount;
     }
 }

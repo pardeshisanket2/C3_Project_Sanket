@@ -97,6 +97,6 @@ class RestaurantTest {
         List<Item> itemList = new ArrayList<Item>();
         itemList.add(0,restaurant.getMenu().get(0));
         Amount amount = restaurant.calculateTotalAmount(itemList);
-        assertNotNull(amount);
+        assertEquals(119,amount.totalAmount);
     }
 }
